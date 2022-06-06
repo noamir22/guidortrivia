@@ -41,10 +41,10 @@ public partial class Login : Window
     }
     private void Quit_OnClick(object sender, RoutedEventArgs e)
     {
+        // TODO: send exit to server 
         Sb.Completed += new EventHandler(Sb_Completed);
         Sb.Begin();
     }
-
     void Sb_Completed(object? sender, EventArgs e)
     {
         this.Close();
@@ -52,10 +52,9 @@ public partial class Login : Window
 
     private void Login_OnClick(object sender, RoutedEventArgs e)
     {
-        // here login
         string username = new string(this.Username.Text);
         string password = new string(this.Password.Password.ToString());
-
+        // TODO: login to the server
         Sb.Completed += new EventHandler(move_to_menu);
         Sb.Begin();
     }

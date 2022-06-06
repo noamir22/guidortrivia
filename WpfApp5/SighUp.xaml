@@ -12,7 +12,7 @@
         <ControlTemplate x:Key="ButtonTemplate1" TargetType="{x:Type ButtonBase}">
             <Grid Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Rectangle Stroke="#FF9A4600" HorizontalAlignment="Right" Width="100" RadiusX="15" RadiusY="15"
-                           Fill="#FFD66302" StrokeThickness="3" />
+                           Fill="White" StrokeThickness="3" />
                 <ContentPresenter x:Name="contentPresenter" Focusable="False" Margin="0,10"
                                   HorizontalAlignment="Center" VerticalAlignment="Center" />
             </Grid>
@@ -29,7 +29,7 @@
 
     <Grid>
         <Rectangle x:Name="Rectangle" Height="100" Margin="0,0,0,0" Stroke="#FF040201" StrokeThickness="2" Width="50"
-                   Visibility="Hidden" Fill="#FFAD5A06" RenderTransformOrigin="0.5,0.5" RadiusX="10" RadiusY="10">
+                   Visibility="Hidden" Fill="White" RenderTransformOrigin="0.5,0.5" RadiusX="10" RadiusY="10">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform />
