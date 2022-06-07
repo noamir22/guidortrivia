@@ -33,3 +33,7 @@ C:\Users\noami\RiderProjects\WpfApp5\WpfApp5\obj\Debug\net6.0-windows\BestScores
 C:\Users\noami\RiderProjects\WpfApp5\WpfApp5\obj\Debug\net6.0-windows\MyStatus.baml
 C:\Users\noami\RiderProjects\WpfApp5\WpfApp5\obj\Debug\net6.0-windows\WaitingRoom.baml
 C:\Users\noami\RiderProjects\WpfApp5\WpfApp5\obj\Debug\net6.0-windows\WaitingRoomHost.baml
+C:\Users\noami\RiderProjects\WpfApp5\WpfApp5\obj\Debug\net6.0-windows\Avatar.g.cs
+C:\Users\noami\RiderProjects\WpfApp5\WpfApp5\obj\Debug\net6.0-windows\CreateRoom.g.cs
+C:\Users\noami\RiderProjects\WpfApp5\WpfApp5\obj\Debug\net6.0-windows\Avatar.baml
+C:\Users\noami\RiderProjects\WpfApp5\WpfApp5\obj\Debug\net6.0-windows\CreateRoom.baml

@@ -28,7 +28,7 @@ public partial class SighUp : Window
         string username = new string(this.UsernameBox.Text);
         string email = new string(this.EmailBox.Text);
         string password = new string(this.PasswordBox.Password.ToString());
-
+        // TODO: send to the server the data
         Sb.Completed += new EventHandler(move_to_login);
         Sb.Begin();
     }
@@ -43,6 +43,7 @@ public partial class SighUp : Window
 
     private void Quit_OnClick(object sender, RoutedEventArgs e)
     {
+        //TODO: disconnect from the server
         Sb.Completed += new EventHandler(Sb_Completed);
         Sb.Begin();
     }
