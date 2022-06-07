@@ -19,8 +19,11 @@ namespace WpfApp5
     /// </summary>
     public partial class WaitingRoom : Window
     {
-        public WaitingRoom()
+        public string? RoomName;
+        public WaitingRoom(string? roomName)
         {
+            
+            RoomName = roomName;
             InitializeComponent();
         }
 

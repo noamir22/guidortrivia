@@ -3,7 +3,6 @@ using System.Windows;
 
 
 namespace WpfApp5;
-// Amir: add open and close animation
 // Amir: add sound 
 public partial class Login : Window
 {
