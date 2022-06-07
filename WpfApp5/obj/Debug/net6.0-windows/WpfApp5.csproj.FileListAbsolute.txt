@@ -25,3 +25,11 @@ C:\Users\noami\RiderProjects\WpfApp5\WpfApp5\obj\Debug\net6.0-windows\SighUp.g.c
 C:\Users\noami\RiderProjects\WpfApp5\WpfApp5\obj\Debug\net6.0-windows\SighUp.baml
 C:\Users\noami\RiderProjects\WpfApp5\WpfApp5\obj\Debug\net6.0-windows\JoinRoom.g.cs
 C:\Users\noami\RiderProjects\WpfApp5\WpfApp5\obj\Debug\net6.0-windows\JoinRoom.baml
+C:\Users\noami\RiderProjects\WpfApp5\WpfApp5\obj\Debug\net6.0-windows\BestScores.g.cs
+C:\Users\noami\RiderProjects\WpfApp5\WpfApp5\obj\Debug\net6.0-windows\MyStatus.g.cs
+C:\Users\noami\RiderProjects\WpfApp5\WpfApp5\obj\Debug\net6.0-windows\WaitingRoom.g.cs
+C:\Users\noami\RiderProjects\WpfApp5\WpfApp5\obj\Debug\net6.0-windows\WaitingRoomHost.g.cs
+C:\Users\noami\RiderProjects\WpfApp5\WpfApp5\obj\Debug\net6.0-windows\BestScores.baml
+C:\Users\noami\RiderProjects\WpfApp5\WpfApp5\obj\Debug\net6.0-windows\MyStatus.baml
+C:\Users\noami\RiderProjects\WpfApp5\WpfApp5\obj\Debug\net6.0-windows\WaitingRoom.baml
+C:\Users\noami\RiderProjects\WpfApp5\WpfApp5\obj\Debug\net6.0-windows\WaitingRoomHost.baml

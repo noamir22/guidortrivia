@@ -5,16 +5,81 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:WpfApp5"
         mc:Ignorable="d"
-        Title="welcome" Height="450" Width="400" Background="{x:Null}" HorizontalAlignment="Center"
-        VerticalAlignment="Center" AllowsTransparency="True" WindowStyle="None">
-
+        Title="Sigh Up" Height="1080" Width="1920" Background="{x:Null}" HorizontalAlignment="Center"
+        VerticalAlignment="Center" AllowsTransparency="True" WindowStyle="None"
+        WindowState="Maximized" FontFamily="Arial">
     <Window.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style x:Key="ButtonStyle1" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
         <ControlTemplate x:Key="ButtonTemplate1" TargetType="{x:Type ButtonBase}">
-            <Grid Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Rectangle Stroke="#FF9A4600" HorizontalAlignment="Right" Width="100" RadiusX="15" RadiusY="15"
-                           Fill="White" StrokeThickness="3" />
+            <Grid Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" OpacityMask="Black">
+                <Rectangle HorizontalAlignment="Right" Width="100" RadiusX="15" RadiusY="15"
+                        Fill="White" StrokeThickness="3" >
+                    <Rectangle.Stroke>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF0004FF"/>
+                            <GradientStop Color="White" Offset="1"/>
+                            <GradientStop Color="#FFF10404" Offset="0.979"/>
+                        </LinearGradientBrush>
+                    </Rectangle.Stroke>
+                </Rectangle>
                 <ContentPresenter x:Name="contentPresenter" Focusable="False" Margin="0,10"
-                                  HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                HorizontalAlignment="Center" VerticalAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" />
             </Grid>
             <ControlTemplate.Triggers>
                 <Trigger Property="Button.IsDefaulted" Value="true" />
@@ -24,12 +89,117 @@
 
             </ControlTemplate.Triggers>
         </ControlTemplate>
+        <SolidColorBrush x:Key="TextBox.Static.Border" Color="#FFABAdB3"/>
+        <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#FF7EB4EA"/>
+        <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#FF569DE5"/>
+        <Style x:Key="PasswordBoxStyle1" TargetType="{x:Type PasswordBox}">
+            <Setter Property="PasswordChar" Value="●"/>
+            <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource TextBox.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="AllowDrop" Value="true"/>
+            <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type PasswordBox}">
+                        <Border x:Name="border" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="True" VerticalAlignment="Center">
+                            <Grid>
+                                <Rectangle RadiusX="5.5" RadiusY="5.5" Stroke="Black"/>
+                                <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Opacity" TargetName="border" Value="0.56"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsKeyboardFocused" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.Focus.Border}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
+                        <Condition Property="IsSelectionActive" Value="false"/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+                </MultiTrigger>
+            </Style.Triggers>
+        </Style>
+        <SolidColorBrush x:Key="TextBox.Static.Border1" Color="#FFABAdB3"/>
+        <SolidColorBrush x:Key="TextBox.MouseOver.Border1" Color="#FF7EB4EA"/>
+        <SolidColorBrush x:Key="TextBox.Focus.Border1" Color="#FF569DE5"/>
+        <Style x:Key="TextBoxStyle1" TargetType="{x:Type TextBox}">
+            <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource TextBox.Static.Border1}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="AllowDrop" Value="true"/>
+            <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Border x:Name="border" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="True">
+                            <Grid>
+                                <Rectangle  Stroke="Black" RadiusX="6.981" RadiusY="6.981"/>
+                                <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" />
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Opacity" TargetName="border" Value="0.56"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.MouseOver.Border1}"/>
+                            </Trigger>
+                            <Trigger Property="IsKeyboardFocused" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.Focus.Border1}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
+                        <Condition Property="IsSelectionActive" Value="false"/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+                </MultiTrigger>
+            </Style.Triggers>
+        </Style>
+
     </Window.Resources>
 
 
+
+
+
+
     <Grid>
-        <Rectangle x:Name="Rectangle" Height="100" Margin="0,0,0,0" Stroke="#FF040201" StrokeThickness="2" Width="50"
-                   Visibility="Hidden" Fill="White" RenderTransformOrigin="0.5,0.5" RadiusX="10" RadiusY="10">
+        <Rectangle x:Name="background" Margin="550,300" StrokeThickness="10" RenderTransformOrigin="0.5,0.5" RadiusX="10" RadiusY="10" Fill="White" ScrollViewer.VerticalScrollBarVisibility="Visible" >
+            <Rectangle.Stroke>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Red" Offset="1"/>
+                    <GradientStop Color="#FF0056FF" Offset="0"/>
+                </LinearGradientBrush>
+            </Rectangle.Stroke>
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform />
@@ -42,313 +212,197 @@
                 <EventTrigger RoutedEvent="Loaded">
                     <BeginStoryboard>
                         <Storyboard>
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Rectangle"
-                                                           Storyboard.TargetProperty="(UIElement.Visibility)">
+
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="magshitrivia" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}"/>
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="UsernameBlock" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}"/>
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="passwordBlock" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}"/>
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PasswordBox" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}"/>
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="UsernameBox" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}"/>
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="login" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}"/>
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Sighup" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}"/>
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Quit" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}"/>
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="background" Storyboard.TargetProperty="(UIElement.Visibility)">
                                 <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}" />
                             </ObjectAnimationUsingKeyFrames>
-                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Rectangle"
-                                                           Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
-                                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="1" />
-                                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="4.5" />
-                                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="8" />
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="background" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+                                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                                <EasingDoubleKeyFrame KeyTime="00:00:00.5" Value="0.5"/>
+                                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="1"/>
                             </DoubleAnimationUsingKeyFrames>
-                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Rectangle"
-                                                           Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
-                                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0" />
-                                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="0" />
-                                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0" />
-                            </DoubleAnimationUsingKeyFrames>
-                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Rectangle"
-                                                           Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
-                                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="1" />
-                                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="4.5" />
-                            </DoubleAnimationUsingKeyFrames>
-                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Rectangle"
-                                                           Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
-                                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0" />
-                                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="0" />
-                            </DoubleAnimationUsingKeyFrames>
-                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Rectangle"
-                                                           Storyboard.TargetProperty="(Rectangle.RadiusX)">
-                                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="50" />
-                                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="8" />
-                            </DoubleAnimationUsingKeyFrames>
-                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Rectangle"
-                                                           Storyboard.TargetProperty="(Rectangle.RadiusY)">
-                                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="50" />
-                                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="12" />
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="background" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0.0"/>
+                                <EasingDoubleKeyFrame KeyTime="00:00:00.5" Value="1"/>
                             </DoubleAnimationUsingKeyFrames>
 
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Label"
-                                                           Storyboard.TargetProperty="(UIElement.Visibility)">
-                                <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Visible}" />
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="magshitrivia" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Visible}"/>
                             </ObjectAnimationUsingKeyFrames>
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="UsernameBlock"
-                                                           Storyboard.TargetProperty="(UIElement.Visibility)">
-                                <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Visible}" />
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="UsernameBlock" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Visible}"/>
                             </ObjectAnimationUsingKeyFrames>
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PasswordBlock"
-                                                           Storyboard.TargetProperty="(UIElement.Visibility)">
-                                <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Visible}" />
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="passwordBlock" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Visible}"/>
                             </ObjectAnimationUsingKeyFrames>
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="EmailBlock"
-                                                           Storyboard.TargetProperty="(UIElement.Visibility)">
-                                <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Visible}" />
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PasswordBox" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Visible}"/>
                             </ObjectAnimationUsingKeyFrames>
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PasswordBox"
-                                                           Storyboard.TargetProperty="(UIElement.Visibility)">
-                                <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Visible}" />
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="UsernameBox" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Visible}"/>
                             </ObjectAnimationUsingKeyFrames>
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="UsernameBox"
-                                                           Storyboard.TargetProperty="(UIElement.Visibility)">
-                                <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Visible}" />
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="login" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Visible}"/>
                             </ObjectAnimationUsingKeyFrames>
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="EmailBox"
-                                                           Storyboard.TargetProperty="(UIElement.Visibility)">
-                                <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Visible}" />
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Sighup" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Visible}"/>
                             </ObjectAnimationUsingKeyFrames>
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Login"
-                                                           Storyboard.TargetProperty="(UIElement.Visibility)">
-                                <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Visible}" />
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Quit" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Visible}"/>
                             </ObjectAnimationUsingKeyFrames>
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Sighup"
-                                                           Storyboard.TargetProperty="(UIElement.Visibility)">
-                                <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Visible}" />
-                            </ObjectAnimationUsingKeyFrames>
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Quit"
-                                                           Storyboard.TargetProperty="(UIElement.Visibility)">
-                                <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Visible}" />
-                            </ObjectAnimationUsingKeyFrames>
-
-                            <ColorAnimationUsingKeyFrames Storyboard.TargetName="Label"
-                                                          Storyboard.TargetProperty="(Control.Foreground).(SolidColorBrush.Color)">
-                                <EasingColorKeyFrame KeyTime="00:00:01" Value="#FFAD5A06" />
-                                <EasingColorKeyFrame KeyTime="00:00:02" Value="#FF0EA22C" />
-                            </ColorAnimationUsingKeyFrames>
-                            <ColorAnimationUsingKeyFrames Storyboard.TargetName="UsernameBlock"
-                                                          Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)">
-                                <EasingColorKeyFrame KeyTime="00:00:01" Value="#FFAD5A06" />
-                                <EasingColorKeyFrame KeyTime="00:00:02" Value="#FF0EA22C" />
-                            </ColorAnimationUsingKeyFrames>
-                            <ColorAnimationUsingKeyFrames Storyboard.TargetName="PasswordBlock"
-                                                          Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)">
-                                <EasingColorKeyFrame KeyTime="00:00:01" Value="#FFAD5A06" />
-                                <EasingColorKeyFrame KeyTime="00:00:02" Value="#FF0EA22C" />
-                            </ColorAnimationUsingKeyFrames>
-                            <ColorAnimationUsingKeyFrames Storyboard.TargetName="EmailBlock"
-                                                          Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)">
-                                <EasingColorKeyFrame KeyTime="00:00:01" Value="#FFAD5A06" />
-                                <EasingColorKeyFrame KeyTime="00:00:02" Value="#FF0EA22C" />
-                            </ColorAnimationUsingKeyFrames>
-                            <ColorAnimationUsingKeyFrames Storyboard.TargetName="UsernameBox"
-                                                          Storyboard.TargetProperty="(Control.Background).(SolidColorBrush.Color)">
-                                <EasingColorKeyFrame KeyTime="00:00:01" Value="#FFAD5A06" />
-                                <EasingColorKeyFrame KeyTime="00:00:02" Value="#FFCA7014" />
-                            </ColorAnimationUsingKeyFrames>
-                            <ColorAnimationUsingKeyFrames Storyboard.TargetName="EmailBox"
-                                                          Storyboard.TargetProperty="(Control.Background).(SolidColorBrush.Color)">
-                                <EasingColorKeyFrame KeyTime="00:00:01" Value="#FFAD5A06" />
-                                <EasingColorKeyFrame KeyTime="00:00:02" Value="#FFCA7014" />
-                            </ColorAnimationUsingKeyFrames>
-                            <ColorAnimationUsingKeyFrames Storyboard.TargetName="PasswordBox"
-                                                          Storyboard.TargetProperty="(Control.Background).(SolidColorBrush.Color)">
-                                <EasingColorKeyFrame KeyTime="00:00:01" Value="#FFAD5A06" />
-                                <EasingColorKeyFrame KeyTime="00:00:02" Value="#FFCA7014" />
-                            </ColorAnimationUsingKeyFrames>
-
-
-                            <ColorAnimationUsingKeyFrames Storyboard.TargetName="Login"
-                                                          Storyboard.TargetProperty="(Control.Background).(SolidColorBrush.Color)">
-                                <EasingColorKeyFrame KeyTime="00:00:01" Value="#FFAD5A06" />
-                                <EasingColorKeyFrame KeyTime="00:00:02" Value="#FFCA7014" />
-                            </ColorAnimationUsingKeyFrames>
-                            <ColorAnimationUsingKeyFrames Storyboard.TargetName="Sighup"
-                                                          Storyboard.TargetProperty="(Control.Background).(SolidColorBrush.Color)">
-                                <EasingColorKeyFrame KeyTime="00:00:01" Value="#FFAD5A06" />
-                                <EasingColorKeyFrame KeyTime="00:00:02" Value="#FFCA7014" />
-                            </ColorAnimationUsingKeyFrames>
-                            <ColorAnimationUsingKeyFrames Storyboard.TargetName="Quit"
-                                                          Storyboard.TargetProperty="(Control.Background).(SolidColorBrush.Color)">
-                                <EasingColorKeyFrame KeyTime="00:00:01" Value="#FFAD5A06" />
-                                <EasingColorKeyFrame KeyTime="00:00:02" Value="#FFCA7014" />
-                            </ColorAnimationUsingKeyFrames>
-
                         </Storyboard>
                     </BeginStoryboard>
                 </EventTrigger>
             </Rectangle.Triggers>
 
         </Rectangle>
-        <Label x:Name="Label" Content="magshitrivia" HorizontalAlignment="Center" Height="95" Margin="0,31,0,0"
-               VerticalAlignment="Top" Width="300" HorizontalContentAlignment="Center"
-               VerticalContentAlignment="Center" FontSize="50" FontFamily="Curlz MT" FontWeight="Bold"
-               Foreground="#FFAD5A06" Visibility="Hidden" />
+        <Label x:Name="magshitrivia" Content="magshitrivia" HorizontalAlignment="Center" Height="95" Margin="0,320"
+               VerticalAlignment="Top" HorizontalContentAlignment="Center"
+               VerticalContentAlignment="Center" FontSize="50" FontWeight="Bold" d:LayoutOverrides="LeftPosition, RightPosition" Background="Transparent"  >
+            <Label.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFFF1700" Offset="1"/>
+                    <GradientStop Color="#FF003EFF" Offset="0"/>
+                </LinearGradientBrush>
+            </Label.Foreground>
+        </Label>
 
-        <TextBlock x:Name="UsernameBlock" Margin="50,150,0,0" TextWrapping="Wrap" Text="Username:" Width="133"
-                   HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Curlz MT" FontSize="30"
-                   FontWeight="Bold" Foreground="#FFAD5A06" Visibility="Hidden" />
+        <TextBlock x:Name="UsernameBlock" Margin="620,438,0,0" TextWrapping="Wrap" Text="Username:" Width="160"
+                   HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="30"
+                   FontWeight="Bold" Height="35" d:LayoutOverrides="HorizontalAlignment"  >
+            <TextBlock.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFFF1700" Offset="1"/>
+                    <GradientStop Color="#FF0033FF" Offset="0"/>
+                </LinearGradientBrush>
+            </TextBlock.Foreground>
+        </TextBlock>
 
-        <TextBlock x:Name="PasswordBlock" Margin="50,211,0,199" TextWrapping="Wrap" Text="password:" Width="133"
-                   HorizontalAlignment="Left" FontFamily="Curlz MT" FontSize="30" FontWeight="Bold"
-                   Foreground="#FFAD5A06" d:LayoutOverrides="Height" Visibility="Hidden"  />
+        <TextBlock x:Name="passwordBlock" Margin="620,512,0,533" TextWrapping="Wrap" Text="password:" Width="160"
+                   HorizontalAlignment="Left" FontSize="30" FontWeight="Bold" Height="35" d:LayoutOverrides="VerticalAlignment"  >
+            <TextBlock.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFFF2300" Offset="0.992"/>
+                    <GradientStop Color="#FF0027FF" Offset="0"/>
+                </LinearGradientBrush>
+            </TextBlock.Foreground>
+        </TextBlock>
 
-        <TextBlock x:Name="EmailBlock" Margin="50,275,0,140" TextWrapping="Wrap" Text="Email:" Width="133"
-                   HorizontalAlignment="Left" FontFamily="Curlz MT" FontSize="30" FontWeight="Bold"
-                   Foreground="#FFAD5A06" Visibility="Hidden" />
+        <PasswordBox Style="{DynamicResource PasswordBoxStyle1}" x:Name="PasswordBox" HorizontalAlignment="Left" Margin="785,512,0,533" Width="162" Background="White" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" FontSize="25"  >
+            <PasswordBox.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFFD0606" Offset="1"/>
+                    <GradientStop Color="#FF001BFF" Offset="0"/>
+                </LinearGradientBrush>
+            </PasswordBox.Foreground>
+        </PasswordBox>
 
-        <PasswordBox x:Name="PasswordBox" HorizontalAlignment="Left" Margin="188,211,0,199" Width="162"
-                     Foreground="#FF0EA22C" Background="#FFAD5A06" Visibility="Hidden" />
+        <TextBox Style="{DynamicResource TextBoxStyle1}" x:Name="UsernameBox" HorizontalAlignment="Left" Margin="785,438,0,610" TextWrapping="Wrap" Width="162"
+                  FontSize="25"
+                 Background="White" Height="32" d:LayoutOverrides="HorizontalAlignment"  >
+            <TextBox.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF001BFF"/>
+                    <GradientStop Color="Red" Offset="1"/>
+                </LinearGradientBrush>
+            </TextBox.Foreground>
+        </TextBox>
 
-        <TextBox x:Name="UsernameBox" HorizontalAlignment="Left" Height="40" Margin="188,150,0,0" TextWrapping="Wrap"
-                 VerticalAlignment="Top" Width="162" HorizontalContentAlignment="Center"
-                 VerticalContentAlignment="Center" FontFamily="Curlz MT" FontSize="25" Foreground="#FF0EA22C"
-                 Background="#FFAD5A06" Visibility="Hidden" />
-
-        <TextBox x:Name="EmailBox" HorizontalAlignment="Left" Height="40" Margin="188,270,0,0" TextWrapping="Wrap"
-                 VerticalAlignment="Top" Width="162" HorizontalContentAlignment="Center"
-                 VerticalContentAlignment="Center" FontFamily="Curlz MT" FontSize="25" Foreground="#FF0EA22C"
-                 Background="#FFAD5A06" Visibility="Hidden" />
-
-        <Button Template="{DynamicResource ButtonTemplate1}" x:Name="Login" Content="Login" Margin="75,320,225,90"
-                Visibility="Hidden" Click="Login_OnClick">
+        <Button Template="{DynamicResource ButtonTemplate1}" Style="{DynamicResource ButtonStyle1}" x:Name="login" Content="Login" Margin="839,643,981,402"
+         Click="Login_OnClick" >
             <Button.Triggers>
                 <EventTrigger RoutedEvent="Button.Click" >
                     <BeginStoryboard>
                         <Storyboard x:Name="Sb">
-
-                            <ColorAnimationUsingKeyFrames Storyboard.TargetName="Label"
-                                                          Storyboard.TargetProperty="(Control.Foreground).(SolidColorBrush.Color)">
-                                <EasingColorKeyFrame KeyTime="00:00:00" Value="#FF0EA22C" />
-                                <EasingColorKeyFrame KeyTime="00:00:01" Value="#FFAD5A06" />
-                            </ColorAnimationUsingKeyFrames>
-                            <ColorAnimationUsingKeyFrames Storyboard.TargetName="UsernameBlock"
-                                                          Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)">
-                                <EasingColorKeyFrame KeyTime="00:00:00" Value="#FF0EA22C" />
-                                <EasingColorKeyFrame KeyTime="00:00:01" Value="#FFAD5A06" />
-                            </ColorAnimationUsingKeyFrames>
-                            <ColorAnimationUsingKeyFrames Storyboard.TargetName="PasswordBlock"
-                                                          Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)">
-                                <EasingColorKeyFrame KeyTime="00:00:00" Value="#FF0EA22C" />
-                                <EasingColorKeyFrame KeyTime="00:00:01" Value="#FFAD5A06" />
-                            </ColorAnimationUsingKeyFrames>
-                            <ColorAnimationUsingKeyFrames Storyboard.TargetName="EmailBlock"
-                                                          Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)">
-                                <EasingColorKeyFrame KeyTime="00:00:00" Value="#FF0EA22C" />
-                                <EasingColorKeyFrame KeyTime="00:00:01" Value="#FFAD5A06" />
-                            </ColorAnimationUsingKeyFrames>
-                            <ColorAnimationUsingKeyFrames Storyboard.TargetName="UsernameBox"
-                                                          Storyboard.TargetProperty="(Control.Background).(SolidColorBrush.Color)">
-                                <EasingColorKeyFrame KeyTime="00:00:00" Value="#FFCA7014" />
-                                <EasingColorKeyFrame KeyTime="00:00:01" Value="#FFAD5A06" />
-                            </ColorAnimationUsingKeyFrames>
-                            <ColorAnimationUsingKeyFrames Storyboard.TargetName="EmailBox"
-                                                          Storyboard.TargetProperty="(Control.Background).(SolidColorBrush.Color)">
-                                <EasingColorKeyFrame KeyTime="00:00:00" Value="#FFCA7014" />
-                                <EasingColorKeyFrame KeyTime="00:00:01" Value="#FFAD5A06" />
-                            </ColorAnimationUsingKeyFrames>
-                            <ColorAnimationUsingKeyFrames Storyboard.TargetName="PasswordBox"
-                                                          Storyboard.TargetProperty="(Control.Background).(SolidColorBrush.Color)">
-                                <EasingColorKeyFrame KeyTime="00:00:00" Value="#FFCA7014" />
-                                <EasingColorKeyFrame KeyTime="00:00:01" Value="#FFAD5A06" />
-                            </ColorAnimationUsingKeyFrames>
-
-
-                            <ColorAnimationUsingKeyFrames Storyboard.TargetName="Login"
-                                                          Storyboard.TargetProperty="(Control.Background).(SolidColorBrush.Color)">
-                                <EasingColorKeyFrame KeyTime="00:00:00" Value="#FFCA7014" />
-                                <EasingColorKeyFrame KeyTime="00:00:01" Value="#FFAD5A06" />
-                            </ColorAnimationUsingKeyFrames>
-                            <ColorAnimationUsingKeyFrames Storyboard.TargetName="Sighup"
-                                                          Storyboard.TargetProperty="(Control.Background).(SolidColorBrush.Color)">
-                                <EasingColorKeyFrame KeyTime="00:00:00" Value="#FFCA7014" />
-                                <EasingColorKeyFrame KeyTime="00:00:01" Value="#FFAD5A06" />
-                            </ColorAnimationUsingKeyFrames>
-                            <ColorAnimationUsingKeyFrames Storyboard.TargetName="Quit"
-                                                          Storyboard.TargetProperty="(Control.Background).(SolidColorBrush.Color)">
-                                <EasingColorKeyFrame KeyTime="00:00:00" Value="#FFCA7014" />
-                                <EasingColorKeyFrame KeyTime="00:00:01" Value="#FFAD5A06" />
-                            </ColorAnimationUsingKeyFrames>
-
-
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Label"
-                                                           Storyboard.TargetProperty="(UIElement.Visibility)">
-                                <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Hidden}" />
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="magshitrivia" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}"/>
                             </ObjectAnimationUsingKeyFrames>
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="UsernameBlock"
-                                                           Storyboard.TargetProperty="(UIElement.Visibility)">
-                                <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Hidden}" />
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="UsernameBlock" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}"/>
                             </ObjectAnimationUsingKeyFrames>
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PasswordBlock"
-                                                           Storyboard.TargetProperty="(UIElement.Visibility)">
-                                <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Hidden}" />
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="passwordBlock" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}"/>
                             </ObjectAnimationUsingKeyFrames>
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="EmailBlock"
-                                                           Storyboard.TargetProperty="(UIElement.Visibility)">
-                                <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Hidden}" />
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PasswordBox" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}"/>
                             </ObjectAnimationUsingKeyFrames>
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PasswordBox"
-                                                           Storyboard.TargetProperty="(UIElement.Visibility)">
-                                <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Hidden}" />
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="UsernameBox" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}"/>
                             </ObjectAnimationUsingKeyFrames>
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="UsernameBox"
-                                                           Storyboard.TargetProperty="(UIElement.Visibility)">
-                                <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Hidden}" />
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="login" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}"/>
                             </ObjectAnimationUsingKeyFrames>
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="EmailBox"
-                                                           Storyboard.TargetProperty="(UIElement.Visibility)">
-                                <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Hidden}" />
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Sighup" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}"/>
                             </ObjectAnimationUsingKeyFrames>
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Login"
-                                                           Storyboard.TargetProperty="(UIElement.Visibility)">
-                                <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Hidden}" />
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Quit" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}"/>
                             </ObjectAnimationUsingKeyFrames>
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Sighup"
-                                                           Storyboard.TargetProperty="(UIElement.Visibility)">
-                                <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Hidden}" />
-                            </ObjectAnimationUsingKeyFrames>
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Quit"
-                                                           Storyboard.TargetProperty="(UIElement.Visibility)">
-                                <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Hidden}" />
-                            </ObjectAnimationUsingKeyFrames>
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Rectangle"
-                                                           Storyboard.TargetProperty="(UIElement.Visibility)">
-                                <DiscreteObjectKeyFrame KeyTime="00:00:02" Value="{x:Static Visibility.Hidden}" />
-                            </ObjectAnimationUsingKeyFrames>
-                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Rectangle"
-                                                           Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
-                                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="8" />
-                                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="4.5" />
-                                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="1" />
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="background" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+                                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="0.094"/>
                             </DoubleAnimationUsingKeyFrames>
-
-
-                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Rectangle"
-                                                           Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
-                                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="4.5" />
-                                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="1" />
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="background" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+                                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="82.5"/>
                             </DoubleAnimationUsingKeyFrames>
-
-                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Rectangle"
-                                                           Storyboard.TargetProperty="(Rectangle.RadiusX)">
-                                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="50" />
-                                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="8" />
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="background" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="1"/>
+                                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0.036"/>
                             </DoubleAnimationUsingKeyFrames>
-                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Rectangle"
-                                                           Storyboard.TargetProperty="(Rectangle.RadiusY)">
-                                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="12" />
-                                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="50" />
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="background" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="0"/>
+                                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="-2.52"/>
                             </DoubleAnimationUsingKeyFrames>
                         </Storyboard>
                     </BeginStoryboard>
-
-
                 </EventTrigger>
             </Button.Triggers>
         </Button>
-        <Button Template="{DynamicResource ButtonTemplate1}" x:Name="Sighup" Content="Sigh Up" Margin="225,320,75,90"
-                Visibility="Hidden" Click="SighUp_OnClick" />
-        <Button Template="{DynamicResource ButtonTemplate1}" x:Name="Quit" Content="Quit" Margin="150,375,150,35"
-                Visibility="Hidden" Click="Quit_OnClick" />
+
+        <Button Template="{DynamicResource ButtonTemplate1}" Style="{DynamicResource ButtonStyle1}" x:Name="Sighup" Content="Sigh Up" Margin="981,642,839,402" Click="SighUp_OnClick" />
+        <Button Template="{DynamicResource ButtonTemplate1}" Style="{DynamicResource ButtonStyle1}" x:Name="Quit" Content="Quit" Margin="910,700,910,345" Click="Quit_OnClick" d:LayoutOverrides="HorizontalAlignment" />
+        <TextBlock x:Name="EmailBlock" Margin="620,585,0,0" TextWrapping="Wrap" Width="160"
+            HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="30"
+            FontWeight="Bold" Height="35" d:LayoutOverrides="HorizontalAlignment"  >
+            <TextBlock.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFFF1700" Offset="1"/>
+                    <GradientStop Color="#FF0033FF" Offset="0"/>
+                </LinearGradientBrush>
+            </TextBlock.Foreground><Run FlowDirection="RightToLeft" Language="he-il" Text="E"/><Run Text="mail:"/></TextBlock>
+        <TextBox Style="{DynamicResource TextBoxStyle1}" x:Name="EmailBox" HorizontalAlignment="Left" Margin="785,585,0,463" TextWrapping="Wrap" Width="162"
+            FontSize="25"
+            Background="White" Height="32" d:LayoutOverrides="HorizontalAlignment"  >
+            <TextBox.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF001BFF"/>
+                    <GradientStop Color="Red" Offset="1"/>
+                </LinearGradientBrush>
+            </TextBox.Foreground>
+        </TextBox>
 
     </Grid>
 </Window>

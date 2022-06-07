@@ -10,7 +10,8 @@
         Background="{x:Null}"
         HorizontalAlignment="Center" VerticalAlignment="Center"
         AllowsTransparency="True" WindowStyle="None"
-        WindowState="Maximized">
+        WindowState="Maximized"
+        FontSize="30">
     <Window.Resources>
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
@@ -223,9 +224,9 @@
             <!--     </EventTrigger> -->
             <!-- </Rectangle.Triggers> -->
         </Rectangle>
-        <Label x:Name="magshitrivia" Content="magshitrivia" HorizontalAlignment="Center" Height="95" Margin="0,60,0,0"
+        <Label x:Name="magshitrivia" Content="magshitrivia" HorizontalAlignment="Center" Height="110" Margin="0,60,0,0"
                VerticalAlignment="Top" HorizontalContentAlignment="Center"
-               VerticalContentAlignment="Center" FontSize="50" FontWeight="Bold" d:LayoutOverrides="VerticalAlignment, LeftPosition, RightPosition" Background="Transparent" >
+               VerticalContentAlignment="Center" FontSize="70" FontWeight="Bold" d:LayoutOverrides="VerticalAlignment, LeftPosition, RightPosition" Background="Transparent" >
             <Label.Foreground>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFFF1700" Offset="1"/>
@@ -234,17 +235,16 @@
             </Label.Foreground>
         </Label>
         <Button Template="{DynamicResource ButtonTemplate1}" Style="{DynamicResource ButtonStyle1}" x:Name="Join_Room" Content="join room"
-                Height="80" Margin="595,245,1075,755" Width="250" Visibility="Visible" />
+                Height="100" Margin="520,390,1150,590" Width="250"  RenderTransformOrigin="0.68,0.55" />
         <Button Template="{DynamicResource ButtonTemplate1}" Style="{DynamicResource ButtonStyle1}" x:Name="My_Status" Content="My Status"
-                Height="80" Margin="395,325,1275,675" Width="250" Visibility="Visible" />
+                Height="100" Margin="270,490,1400,490" Width="250"  />
         <Button Template="{DynamicResource ButtonTemplate1}" Style="{DynamicResource ButtonStyle1}" x:Name="Quit" Content="Qoit"
-                Height="80" Margin="595,415,1075,585" Width="250" Visibility="Visible" />
+                Height="100" Margin="520,590,1150,390" Width="250"  />
         <Button Template="{DynamicResource ButtonTemplate1}" Style="{DynamicResource ButtonStyle1}" x:Name="Create_Room"
-                Content="create Room" Height="80" Margin="1065,240,605,760" Width="250" Visibility="Visible" />
+                Content="create Room" Height="100" Margin="1400,490,270,490" Width="250" />
         <Button Template="{DynamicResource ButtonTemplate1}" Style="{DynamicResource ButtonStyle1}" x:Name="Best_Score"
-                Content="Best Score" Height="80" Margin="1260,330,410,670" Width="250" Visibility="Visible" />
+                Content="Best Score" Height="100" Margin="1150,390,520,590" Width="250"  />
         <Button Template="{DynamicResource ButtonTemplate1}" Style="{DynamicResource ButtonStyle1}" x:Name="avatar" Content="avatars"
-            Height="80" Margin="1065,415,605,585" Width="250" Visibility="Visible" />
-        <Image x:Name="image" Height="125" Margin="897,308,897,647" Source="/avatars/bear.png" Stretch="Fill"/>
+            Height="100" Margin="1150,590,520,390" Width="250"  />
     </Grid>
 </Window>

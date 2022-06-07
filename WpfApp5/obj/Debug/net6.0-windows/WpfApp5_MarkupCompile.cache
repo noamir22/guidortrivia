@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\noami\RiderProjects\WpfApp5\WpfApp5\App.xaml
-4-1254137347
+8-305740697
 
-6-337941178
+10-643334988
 1942030480316
-JoinRoom.xaml;Login.xaml;Menu.xaml;SighUp.xaml;
+BestScores.xaml;JoinRoom.xaml;Login.xaml;Menu.xaml;MyStatus.xaml;SighUp.xaml;WaitingRoom.xaml;WaitingRoomHost.xaml;
 
 False
 

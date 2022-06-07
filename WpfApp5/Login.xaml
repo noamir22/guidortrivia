@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp5"
         mc:Ignorable="d"
-        Title="L" Height="1080" Width="1920" Background="{x:Null}" HorizontalAlignment="Center"
+        Title="Login" Height="1080" Width="1920" Background="{x:Null}" HorizontalAlignment="Center"
         VerticalAlignment="Center" AllowsTransparency="True" WindowStyle="None"
         WindowState="Maximized" FontFamily="Arial">
     <Window.Resources>
@@ -184,6 +184,7 @@
                 </MultiTrigger>
             </Style.Triggers>
         </Style>
+       
     </Window.Resources>
 
 
@@ -192,7 +193,7 @@
 
 
     <Grid>
-        <Rectangle x:Name="background" Margin="750,300" StrokeThickness="10" RenderTransformOrigin="0.5,0.5" RadiusX="10" RadiusY="10" Fill="White" ScrollViewer.VerticalScrollBarVisibility="Visible" Visibility="Hidden" >
+        <Rectangle x:Name="background" Margin="750,300" StrokeThickness="10" RenderTransformOrigin="0.5,0.5" RadiusX="10" RadiusY="10" Fill="White" ScrollViewer.VerticalScrollBarVisibility="Visible" >
             <Rectangle.Stroke>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Red" Offset="1"/>
@@ -212,7 +213,30 @@
                     <BeginStoryboard>
                         <Storyboard>
 
-
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="magshitrivia" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}"/>
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="UsernameBlock" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}"/>
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="passwordBlock" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}"/>
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Password" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}"/>
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Username" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}"/>
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="login" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}"/>
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="SighUp" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}"/>
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Quit" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}"/>
+                            </ObjectAnimationUsingKeyFrames>
                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="background" Storyboard.TargetProperty="(UIElement.Visibility)">
                                 <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}" />
                             </ObjectAnimationUsingKeyFrames>
@@ -258,7 +282,7 @@
         </Rectangle>
         <Label x:Name="magshitrivia" Content="magshitrivia" HorizontalAlignment="Center" Height="95" Margin="0,320"
                VerticalAlignment="Top" HorizontalContentAlignment="Center"
-               VerticalContentAlignment="Center" FontSize="50" FontWeight="Bold" d:LayoutOverrides="LeftPosition, RightPosition" Background="Transparent" Visibility="Hidden"  >
+               VerticalContentAlignment="Center" FontSize="50" FontWeight="Bold" d:LayoutOverrides="LeftPosition, RightPosition" Background="Transparent"  >
             <Label.Foreground>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFFF1700" Offset="1"/>
@@ -269,7 +293,7 @@
 
         <TextBlock x:Name="UsernameBlock" Margin="795,450,0,0" TextWrapping="Wrap" Text="Username:" Width="160"
                    HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="30"
-                   FontWeight="Bold" Height="35" d:LayoutOverrides="HorizontalAlignment" Visibility="Hidden"  >
+                   FontWeight="Bold" Height="35" d:LayoutOverrides="HorizontalAlignment"  >
             <TextBlock.Foreground>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFFF1700" Offset="1"/>
@@ -279,7 +303,7 @@
         </TextBlock>
 
         <TextBlock x:Name="passwordBlock" Margin="795,524,0,521" TextWrapping="Wrap" Text="password:" Width="160"
-                   HorizontalAlignment="Left" FontSize="30" FontWeight="Bold" Height="35" d:LayoutOverrides="VerticalAlignment" Visibility="Hidden"  >
+                   HorizontalAlignment="Left" FontSize="30" FontWeight="Bold" Height="35" d:LayoutOverrides="VerticalAlignment"  >
             <TextBlock.Foreground>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFFF2300" Offset="0.992"/>
@@ -288,7 +312,7 @@
             </TextBlock.Foreground>
         </TextBlock>
 
-        <PasswordBox Style="{DynamicResource PasswordBoxStyle1}" x:Name="Password" HorizontalAlignment="Left" Margin="960,524,0,521" Width="162" Background="White" d:LayoutOverrides="VerticalAlignment" FontSize="25" Visibility="Hidden"  >
+        <PasswordBox Style="{DynamicResource PasswordBoxStyle1}" x:Name="Password" HorizontalAlignment="Left" Margin="960,524,0,521" Width="162" Background="White" d:LayoutOverrides="VerticalAlignment" FontSize="25"  >
             <PasswordBox.Foreground>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFFD0606" Offset="1"/>
@@ -299,7 +323,7 @@
 
         <TextBox Style="{DynamicResource TextBoxStyle1}" x:Name="Username" HorizontalAlignment="Left" Margin="960,445,0,603" TextWrapping="Wrap" Width="162"
                   FontSize="25"
-                 Background="White" Height="32" Visibility="Hidden"  >
+                 Background="White" Height="32"  >
             <TextBox.Foreground>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF001BFF"/>
@@ -309,7 +333,7 @@
         </TextBox>
 
         <Button Template="{DynamicResource ButtonTemplate1}" Style="{DynamicResource ButtonStyle1}" x:Name="login" Content="Login" Margin="839,643,981,402"
-         Click="Login_OnClick" Visibility="Hidden">
+         Click="Login_OnClick">
             <Button.Triggers>
                 <EventTrigger RoutedEvent="Button.Click" >
                     <BeginStoryboard>
@@ -358,8 +382,8 @@
             </Button.Triggers>
         </Button>
 
-        <Button Template="{DynamicResource ButtonTemplate1}" Style="{DynamicResource ButtonStyle1}" x:Name="SighUp" Content="Sigh Up" Margin="981,642,839,402" Click="SighUp_OnClick" Visibility="Hidden" />
-        <Button Template="{DynamicResource ButtonTemplate1}" Style="{DynamicResource ButtonStyle1}" x:Name="Quit" Content="Quit" Margin="910,700,910,345" Click="Quit_OnClick" d:LayoutOverrides="HorizontalAlignment" Visibility="Hidden" />
+        <Button Template="{DynamicResource ButtonTemplate1}" Style="{DynamicResource ButtonStyle1}" x:Name="SighUp" Content="Sigh Up" Margin="981,642,839,402" Click="SighUp_OnClick" />
+        <Button Template="{DynamicResource ButtonTemplate1}" Style="{DynamicResource ButtonStyle1}" x:Name="Quit" Content="Quit" Margin="910,700,910,345" Click="Quit_OnClick" d:LayoutOverrides="HorizontalAlignment" />
 
     </Grid>
 </Window>
