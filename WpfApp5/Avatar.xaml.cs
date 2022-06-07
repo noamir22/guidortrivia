@@ -5,6 +5,7 @@ using System.Windows.Media;
 using System.IO;
 using System.Collections;
 using System.Collections.Generic;
+using System.Windows.Input;
 using System.Windows.Media.Imaging;
 
 namespace WpfApp5;
@@ -27,11 +28,22 @@ public partial class Avatar : Window
             maingrid.Children.Add(img);
             Grid.SetRow(img,images.Count % 7);
             Grid.SetColumn(img, images.Count / 7);
-            // img.Stretch = Stretch.Fill;
+            img.MouseDown += new System.Windows.Input.MouseButtonEventHandler(img_MouseDown);
             images.Add(fileName);
+
+            
+
                         
         }
         
+    }
+
+    private void img_MouseDown(object sender, MouseButtonEventArgs e)
+    {
+        Image im = sender as Image;
+        string path = im.Source.ToString();
+        System.IO.File.WriteAllText(AppDomain.CurrentDomain.BaseDirectory + "Data\\currentAvatar", path);
+        Back_OnClick(sender, e);
     }
 
     private void Back_OnClick(object sender, RoutedEventArgs e)
@@ -40,7 +52,6 @@ public partial class Avatar : Window
         // when the animation is completed the window will be closed and the sign up window will be opened
         Sb.Completed += new EventHandler(move_to_menu); // add the event handler to the completed event of the animation
         Sb.Begin(); // start the animation
-
     }
 
     private void move_to_menu(object? sender, EventArgs e)

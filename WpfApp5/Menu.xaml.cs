@@ -15,7 +15,7 @@ public partial class Menu : Window
     {
         InitializeComponent();
         string currentAvatar = System.IO.File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "Data\\currentAvatar");
-        avatar.Source = (ImageSource)new ImageSourceConverter().ConvertFrom(AppDomain.CurrentDomain.BaseDirectory +"Data\\avatars\\" +currentAvatar+".png")!;
+        avatar.Source = (ImageSource)new ImageSourceConverter().ConvertFrom(currentAvatar)!;
 
         }
 
