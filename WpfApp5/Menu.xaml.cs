@@ -1,5 +1,9 @@
 ﻿using System;
 using System.Windows;
+// using System.Windows.Controls;
+using System.Windows.Media;
+using System.IO;
+using System.Collections;
 
 namespace WpfApp5;
 // Amir: add open and close animation
@@ -10,10 +14,14 @@ public partial class Menu : Window
     public Menu()
     {
         InitializeComponent();
-    }
+        string currentAvatar = System.IO.File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "Data\\currentAvatar");
+        avatar.Source = (ImageSource)new ImageSourceConverter().ConvertFrom(AppDomain.CurrentDomain.BaseDirectory +"Data\\avatars\\" +currentAvatar+".png")!;
+
+        }
 
     private void Join_Room_OnClick(object sender, RoutedEventArgs e)
     {
+        
         Sb.Completed += new EventHandler(move_to_join_room); // add the event handler to the completed event of the animation
         Sb.Begin(); // start the animation
     }

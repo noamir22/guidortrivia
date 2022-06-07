@@ -217,8 +217,8 @@
                                                            Storyboard.TargetProperty="(UIElement.Visibility)">
                                 <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}" />
                             </ObjectAnimationUsingKeyFrames>
-            
-            
+
+
                         </Storyboard>
                     </BeginStoryboard>
                 </EventTrigger>
@@ -246,5 +246,7 @@
                 Content="Best Score" Height="100" Margin="1150,390,520,590" Width="250" Click="Best_Score_OnClick" />
         <Button Template="{DynamicResource ButtonTemplate1}" Style="{DynamicResource ButtonStyle1}" x:Name="Avatar" Content="avatars"
             Height="100" Margin="1150,590,520,390" Width="250" Click="Avatar_OnClick" />
+        <Image x:Name="avatar" HorizontalAlignment="Center" Margin="0,440,0,440" Width="200" Height="200" d:LayoutOverrides="VerticalAlignment" />
+        
     </Grid>
 </Window>

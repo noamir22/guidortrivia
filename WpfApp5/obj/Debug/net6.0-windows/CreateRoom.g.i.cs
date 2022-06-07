@@ -53,7 +53,7 @@ namespace WpfApp5 {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/WpfApp5;V1.0.0.0;component/createroom.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/WpfApp5;component/createroom.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\CreateRoom.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
