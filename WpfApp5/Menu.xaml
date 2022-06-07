@@ -236,7 +236,7 @@
         <Button Template="{DynamicResource ButtonTemplate1}" Style="{DynamicResource ButtonStyle1}" x:Name="Join_Room" Content="join room"
                 Height="80" Margin="595,245,1075,755" Width="250" Visibility="Visible" />
         <Button Template="{DynamicResource ButtonTemplate1}" Style="{DynamicResource ButtonStyle1}" x:Name="My_Status" Content="My Status"
-                Height="80" Margin="360,330,1310,670" Width="250" Visibility="Visible" />
+                Height="80" Margin="395,325,1275,675" Width="250" Visibility="Visible" />
         <Button Template="{DynamicResource ButtonTemplate1}" Style="{DynamicResource ButtonStyle1}" x:Name="Quit" Content="Qoit"
                 Height="80" Margin="595,415,1075,585" Width="250" Visibility="Visible" />
         <Button Template="{DynamicResource ButtonTemplate1}" Style="{DynamicResource ButtonStyle1}" x:Name="Create_Room"
@@ -245,6 +245,6 @@
                 Content="Best Score" Height="80" Margin="1260,330,410,670" Width="250" Visibility="Visible" />
         <Button Template="{DynamicResource ButtonTemplate1}" Style="{DynamicResource ButtonStyle1}" x:Name="avatar" Content="avatars"
             Height="80" Margin="1065,415,605,585" Width="250" Visibility="Visible" />
-        <Image x:Name="image" Height="125" Margin="897,308,897,647" Source="/avatars/bear.png"/>
+        <Image x:Name="image" Height="125" Margin="897,308,897,647" Source="/avatars/bear.png" Stretch="Fill"/>
     </Grid>
 </Window>

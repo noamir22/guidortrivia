@@ -13,16 +13,21 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+// using System.Media;
 
 namespace WpfApp5;
 
 public partial class Login : Window
 {
-    bool flag = true;
+    private bool _flag = true;
     public Login()
     {
         InitializeComponent();
-        
+
+        //
+        // SoundPlayer player = new SoundPlayer();
+        // player.SoundLocation = AppDomain.CurrentDomain.BaseDirectory + "lobby-classic-game.wav";
+        // player.Play();
     }
 
     private void SighUp_OnClick(object sender, RoutedEventArgs e)
@@ -30,11 +35,11 @@ public partial class Login : Window
         Sb.Completed += new EventHandler(move_to_signup);
         Sb.Begin();
     }
-    
-    void move_to_signup(object? sender, EventArgs e)
+
+    private void move_to_signup(object? sender, EventArgs e)
     {
-        if (!flag) return;
-        flag = false;
+        if (!_flag) return;
+        _flag = false;
         SighUp window = new SighUp();
         this.Close();
         window.Show();
@@ -45,7 +50,7 @@ public partial class Login : Window
         Sb.Completed += new EventHandler(Sb_Completed);
         Sb.Begin();
     }
-    void Sb_Completed(object? sender, EventArgs e)
+    private void Sb_Completed(object? sender, EventArgs e)
     {
         this.Close();
     }
@@ -59,10 +64,10 @@ public partial class Login : Window
         Sb.Begin();
     }
 
-    void move_to_menu(object? sender, EventArgs e)
+    private void move_to_menu(object? sender, EventArgs e)
     {
-        if (!flag) return;
-        flag = false;
+        if (!_flag) return;
+        _flag = false;
         Menu window = new Menu();
         this.Close();
         window.Show();
