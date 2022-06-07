@@ -17,23 +17,39 @@ public partial class Avatar : Window
     {
         
         InitializeComponent();
+        string currentAvatar = System.IO.File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "Data\\unlocked");
+        string[] keyvalue = currentAvatar.Split('\n');
         List<string> images = new List<string>();
         string [] fileEntries = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory +"Data\\avatars\\");
-        foreach (string fileName in fileEntries)
+        // foreach (string fileName in fileEntries)
+        for (int i=0; i<fileEntries.Length; i++)
         {
             Image img = new Image();
-            img.Source = new BitmapImage(new Uri(fileName));
-            img.Width = 100;
-            img.Height = 100;
-            maingrid.Children.Add(img);
-            Grid.SetRow(img,images.Count % 7);
-            Grid.SetColumn(img, images.Count / 7);
-            img.MouseDown += new System.Windows.Input.MouseButtonEventHandler(img_MouseDown);
-            images.Add(fileName);
+            if (keyvalue[2 * i + 1] == "true")
+            {
+                img.Source = new BitmapImage(new Uri(fileEntries[i]));
+                img.Width = 100;
+                img.Height = 100;
+                maingrid.Children.Add(img);
+                Grid.SetRow(img, images.Count % 7);
+                Grid.SetColumn(img, images.Count / 7);
+                img.MouseDown += new System.Windows.Input.MouseButtonEventHandler(img_MouseDown);
+                images.Add(fileEntries[i]);
+            }
+            else
+            {
+                img.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory +"Data\\information.png"));
+                img.Width = 100;
+                img.Height = 100;
+                maingrid.Children.Add(img);
+                Grid.SetRow(img, images.Count % 7);
+                Grid.SetColumn(img, images.Count / 7);
+                images.Add(fileEntries[i]);
 
-            
+            }
 
-                        
+
+
         }
         
     }

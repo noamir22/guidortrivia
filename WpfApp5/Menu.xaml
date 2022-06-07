@@ -247,6 +247,8 @@
         <Button Template="{DynamicResource ButtonTemplate1}" Style="{DynamicResource ButtonStyle1}" x:Name="Avatar" Content="avatars"
             Height="100" Margin="1150,590,520,390" Width="250" Click="Avatar_OnClick" />
         <Image x:Name="avatar" HorizontalAlignment="Center" Margin="0,440,0,440" Width="200" Height="200" d:LayoutOverrides="VerticalAlignment" />
-        
+        <Button Template="{DynamicResource ButtonTemplate1}" Style="{DynamicResource ButtonStyle1}" x:Name="radio" Content="radio"
+            Height="100" Margin="1640,950,30,30" Width="250" Click="Radio_OnClick" />
+
     </Grid>
 </Window>

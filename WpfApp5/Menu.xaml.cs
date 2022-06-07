@@ -11,6 +11,8 @@ namespace WpfApp5;
 public partial class Menu : Window
 {
     private bool _flag = true;
+    System.Media.SoundPlayer sp;
+    private bool _issound = false;
     public Menu()
     {
         InitializeComponent();
@@ -108,5 +110,37 @@ public partial class Menu : Window
         Avatar window = new Avatar(); // create a new window
         this.Close(); // close the current window
         window.Show(); // show the new window
+    }
+
+
+    private void Radio_OnClick(object sender, RoutedEventArgs e)
+    {
+        if (!_issound)
+        {
+            Random rd = new Random();
+            int rand_num = rd.Next(0, 2);
+            switch (rand_num)
+            {
+                case 0:
+                    sp = new System.Media.SoundPlayer(AppDomain.CurrentDomain.BaseDirectory + "\\Data\\sound\\1.wav");
+                    sp.Play();
+
+                    break;
+                case 1:
+                    sp = new System.Media.SoundPlayer(AppDomain.CurrentDomain.BaseDirectory + "\\Data\\sound\\1.wav");
+                    sp.Play();
+                    break;
+                case 2:
+                    sp = new System.Media.SoundPlayer(AppDomain.CurrentDomain.BaseDirectory + "\\Data\\sound\\1.wav");
+                    sp.Play();
+                    break;
+            }
+            _issound = true;
+        }
+        else
+        {
+            sp.Stop();
+            _issound = false;
+        }
     }
 }
