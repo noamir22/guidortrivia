@@ -201,28 +201,28 @@
                     <GradientStop Color="#FF0033FF" Offset="0"/>
                 </LinearGradientBrush>
             </Rectangle.Stroke>
-            <!-- <Rectangle.RenderTransform> -->
-            <!--     <TransformGroup> -->
-            <!--         <ScaleTransform /> -->
-            <!--         <SkewTransform /> -->
-            <!--         <RotateTransform /> -->
-            <!--         <TranslateTransform /> -->
-            <!--     </TransformGroup> -->
-            <!-- </Rectangle.RenderTransform> -->
-            <!-- <Rectangle.Triggers> -->
-            <!--     <EventTrigger RoutedEvent="Loaded"> -->
-            <!--         <BeginStoryboard> -->
-            <!--             <Storyboard> -->
-            <!--                 <ObjectAnimationUsingKeyFrames Storyboard.TargetName="rectangle" -->
-            <!--                                                Storyboard.TargetProperty="(UIElement.Visibility)"> -->
-            <!--                     <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}" /> -->
-            <!--                 </ObjectAnimationUsingKeyFrames> -->
-            <!-- -->
-            <!-- -->
-            <!--             </Storyboard> -->
-            <!--         </BeginStoryboard> -->
-            <!--     </EventTrigger> -->
-            <!-- </Rectangle.Triggers> -->
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform />
+                    <TranslateTransform />
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+            <Rectangle.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard x:Name="Sb">
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="rectangle"
+                                                           Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}" />
+                            </ObjectAnimationUsingKeyFrames>
+            
+            
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Rectangle.Triggers>
         </Rectangle>
         <Label x:Name="magshitrivia" Content="magshitrivia" HorizontalAlignment="Center" Height="110" Margin="0,60,0,0"
                VerticalAlignment="Top" HorizontalContentAlignment="Center"
@@ -235,7 +235,7 @@
             </Label.Foreground>
         </Label>
         <Button Template="{DynamicResource ButtonTemplate1}" Style="{DynamicResource ButtonStyle1}" x:Name="Back" Content="Back"
-                Height="100" Margin="835,870,835,110" Width="250" d:LayoutOverrides="HorizontalAlignment"  />
+                Height="100" Margin="835,870,835,110" Width="250" d:LayoutOverrides="HorizontalAlignment" Click="Back_OnClick"  />
         <Label x:Name="My_Perfomances" Content="My Perfomances:" HorizontalAlignment="Center" Height="110" Margin="0,230,0,0"
             VerticalAlignment="Top" HorizontalContentAlignment="Center"
             VerticalContentAlignment="Center" FontSize="70" FontWeight="Bold" Background="Transparent" d:LayoutOverrides="VerticalAlignment, LeftPosition, RightPosition" >
@@ -246,7 +246,7 @@
                 </LinearGradientBrush>
             </Label.Foreground>
         </Label>
-        <Label Content="Number of Games:" HorizontalAlignment="Left" Height="110" Margin="125,385,0,0"
+        <Label x:Name="NumberOfGame" Content="Number of Games:" HorizontalAlignment="Left" Height="110" Margin="125,385,0,0"
             VerticalAlignment="Top" HorizontalContentAlignment="Center"
             VerticalContentAlignment="Center" FontSize="50" FontWeight="Bold" Background="Transparent" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" >
             <Label.Foreground>
@@ -256,7 +256,7 @@
                 </LinearGradientBrush>
             </Label.Foreground>
         </Label>
-        <Label Content="Number of Right Answers:&#xD;&#xA;" HorizontalAlignment="Left" Height="110" Margin="125,630,0,0"
+        <Label x:Name="NumberOfRightAnswers" Content="Number of Right Answers:" HorizontalAlignment="Left" Height="110" Margin="125,630,0,0"
             VerticalAlignment="Top" HorizontalContentAlignment="Center"
             VerticalContentAlignment="Center" FontSize="50" FontWeight="Bold" Background="Transparent" d:LayoutOverrides="HorizontalAlignment" >
             <Label.Foreground>
@@ -266,7 +266,7 @@
                 </LinearGradientBrush>
             </Label.Foreground>
         </Label>
-        <Label Content="Number of Wrong Answers:" HorizontalAlignment="Left" Height="110" Margin="1036,385,0,0"
+        <Label x:Name="NumberOfWrongAnswers" Content="Number of Wrong Answers:" HorizontalAlignment="Left" Height="110" Margin="1036,385,0,0"
             VerticalAlignment="Top" HorizontalContentAlignment="Center"
             VerticalContentAlignment="Center" FontSize="50" FontWeight="Bold" Background="Transparent" d:LayoutOverrides="VerticalAlignment" >
             <Label.Foreground>
@@ -276,7 +276,7 @@
                 </LinearGradientBrush>
             </Label.Foreground>
         </Label>
-        <Label Content="Average Time Per Answer:" HorizontalAlignment="Left" Height="110" Margin="1075,630,0,0"
+        <Label x:Name="AverageTimePerAnswer" Content="Average Time Per Answer:" HorizontalAlignment="Left" Height="110" Margin="1075,630,0,0"
             VerticalAlignment="Top" HorizontalContentAlignment="Center"
             VerticalContentAlignment="Center" FontSize="50" FontWeight="Bold" Background="Transparent" >
             <Label.Foreground>

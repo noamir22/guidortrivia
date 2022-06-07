@@ -19,9 +19,36 @@ namespace WpfApp5
     /// </summary>
     public partial class MyStatus : Window
     {
+        private bool _flag = true;
         public MyStatus()
         {
             InitializeComponent();
+            // TODO: get from the server the current status of the user
+            NumberOfGame.Content = "Number of Games: " + "0";
+            NumberOfRightAnswers.Content = "Number of Right Answers: " + "0";
+            NumberOfWrongAnswers.Content = "Number of Wrong Answers: " + "0";
+            AverageTimePerAnswer.Content = "Average Time Per Answer: " + "0";
+            
+        }
+
+        private void Back_OnClick(object sender, RoutedEventArgs e)
+        {
+            // when the user click the sign up button, the animation will be play.
+            // when the animation is completed the window will be closed and the sign up window will be opened
+            Sb.Completed += new EventHandler(move_to_menu); // add the event handler to the completed event of the animation
+            Sb.Begin(); // start the animation
+
+        }
+
+        private void move_to_menu(object? sender, EventArgs e)
+        {
+            // the animation will not be play again
+            if (!_flag) return;
+            _flag = false;
+
+            Menu window = new Menu(); // create a new window
+            this.Close(); // close the current window
+            window.Show(); // show the new window
         }
     }
 }
