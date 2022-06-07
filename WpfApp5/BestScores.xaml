@@ -235,7 +235,7 @@
             </Label.Foreground>
         </Label>
         <Button Template="{DynamicResource ButtonTemplate1}" Style="{DynamicResource ButtonStyle1}" x:Name="Back" Content="Back"
-                Height="100" Margin="835,870,835,110" Width="250" d:LayoutOverrides="HorizontalAlignment"  />
+                Height="100" Margin="835,870,835,110" Width="250" d:LayoutOverrides="HorizontalAlignment" Click="Back_OnClick"  />
         <Label x:Name="My_Perfomances" Content="Best Score&#xD;&#xA;" HorizontalAlignment="Center" Height="110" Margin="0,230,0,0"
             VerticalAlignment="Top" HorizontalContentAlignment="Center"
             VerticalContentAlignment="Center" FontSize="70" FontWeight="Bold" Background="Transparent" d:LayoutOverrides="VerticalAlignment, LeftPosition, RightPosition" >

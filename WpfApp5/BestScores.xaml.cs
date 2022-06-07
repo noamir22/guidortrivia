@@ -49,5 +49,6 @@ namespace WpfApp5
             this.Close(); // close the current window
             window.Show(); // show the new window
         }
+        
     }
 }
