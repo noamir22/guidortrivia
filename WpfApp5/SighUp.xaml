@@ -184,6 +184,16 @@
                 </MultiTrigger>
             </Style.Triggers>
         </Style>
+        <Storyboard x:Key="Storyboard1">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="EmailBlock" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="EmailBox" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
 
     </Window.Resources>
 
@@ -212,30 +222,45 @@
                 <EventTrigger RoutedEvent="Loaded">
                     <BeginStoryboard>
                         <Storyboard>
-
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="EmailBlock" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}"/>
+                                <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Visible}"/>
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="EmailBox" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}"/>
+                                <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Visible}"/>
+                            </ObjectAnimationUsingKeyFrames>
                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="magshitrivia" Storyboard.TargetProperty="(UIElement.Visibility)">
                                 <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}"/>
+                                <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Visible}"/>
                             </ObjectAnimationUsingKeyFrames>
                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="UsernameBlock" Storyboard.TargetProperty="(UIElement.Visibility)">
                                 <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}"/>
+                                <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Visible}"/>
                             </ObjectAnimationUsingKeyFrames>
                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="passwordBlock" Storyboard.TargetProperty="(UIElement.Visibility)">
                                 <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}"/>
+                                <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Visible}"/>
                             </ObjectAnimationUsingKeyFrames>
                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PasswordBox" Storyboard.TargetProperty="(UIElement.Visibility)">
                                 <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}"/>
+                                <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Visible}"/>
                             </ObjectAnimationUsingKeyFrames>
                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="UsernameBox" Storyboard.TargetProperty="(UIElement.Visibility)">
                                 <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}"/>
+                                <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Visible}"/>
                             </ObjectAnimationUsingKeyFrames>
                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="login" Storyboard.TargetProperty="(UIElement.Visibility)">
                                 <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}"/>
+                                <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Visible}"/>
                             </ObjectAnimationUsingKeyFrames>
                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Sighup" Storyboard.TargetProperty="(UIElement.Visibility)">
                                 <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}"/>
+                                <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Visible}"/>
                             </ObjectAnimationUsingKeyFrames>
                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Quit" Storyboard.TargetProperty="(UIElement.Visibility)">
                                 <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}"/>
+                                <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Visible}"/>
                             </ObjectAnimationUsingKeyFrames>
                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="background" Storyboard.TargetProperty="(UIElement.Visibility)">
                                 <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}" />
@@ -249,31 +274,7 @@
                                 <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0.0"/>
                                 <EasingDoubleKeyFrame KeyTime="00:00:00.5" Value="1"/>
                             </DoubleAnimationUsingKeyFrames>
-
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="magshitrivia" Storyboard.TargetProperty="(UIElement.Visibility)">
-                                <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Visible}"/>
-                            </ObjectAnimationUsingKeyFrames>
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="UsernameBlock" Storyboard.TargetProperty="(UIElement.Visibility)">
-                                <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Visible}"/>
-                            </ObjectAnimationUsingKeyFrames>
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="passwordBlock" Storyboard.TargetProperty="(UIElement.Visibility)">
-                                <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Visible}"/>
-                            </ObjectAnimationUsingKeyFrames>
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PasswordBox" Storyboard.TargetProperty="(UIElement.Visibility)">
-                                <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Visible}"/>
-                            </ObjectAnimationUsingKeyFrames>
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="UsernameBox" Storyboard.TargetProperty="(UIElement.Visibility)">
-                                <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Visible}"/>
-                            </ObjectAnimationUsingKeyFrames>
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="login" Storyboard.TargetProperty="(UIElement.Visibility)">
-                                <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Visible}"/>
-                            </ObjectAnimationUsingKeyFrames>
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Sighup" Storyboard.TargetProperty="(UIElement.Visibility)">
-                                <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Visible}"/>
-                            </ObjectAnimationUsingKeyFrames>
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Quit" Storyboard.TargetProperty="(UIElement.Visibility)">
-                                <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Visible}"/>
-                            </ObjectAnimationUsingKeyFrames>
+                            
                         </Storyboard>
                     </BeginStoryboard>
                 </EventTrigger>
@@ -338,6 +339,14 @@
                 <EventTrigger RoutedEvent="Button.Click" >
                     <BeginStoryboard>
                         <Storyboard x:Name="Sb">
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="EmailBlock" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}"/>
+
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="EmailBox" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}"/>
+
+                            </ObjectAnimationUsingKeyFrames>
                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="magshitrivia" Storyboard.TargetProperty="(UIElement.Visibility)">
                                 <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}"/>
                             </ObjectAnimationUsingKeyFrames>
