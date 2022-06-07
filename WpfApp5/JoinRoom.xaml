@@ -286,8 +286,8 @@
                 Height="100" Margin="1085,755,585,225" Width="250"  RenderTransformOrigin="0.68,0.55" Click="Join_Room_OnClick"  IsEnabled="False"/>
         <Button Template="{DynamicResource ButtonTemplate1}" Style="{DynamicResource ButtonStyle1}" x:Name="Refresh" Content="Refresh"
                 Height="100" Margin="585,755,1085,225" Width="250"  Click="Refresh_OnClick"/>
-        <Button Template="{DynamicResource ButtonTemplate1}" Style="{DynamicResource ButtonStyle1}" x:Name="Quit" Content="Qoit"
-                Height="100" Margin="835,860,835,120" Width="250" d:LayoutOverrides="HorizontalAlignment" Click="Quit_OnClick" />
+        <Button Template="{DynamicResource ButtonTemplate1}" Style="{DynamicResource ButtonStyle1}" x:Name="Back" Content="Back"
+                Height="100" Margin="835,860,835,120" Width="250" d:LayoutOverrides="HorizontalAlignment" Click="Back_OnClick" />
         <ListBox Style="{DynamicResource ListBoxStyle1}" x:Name="RoomsList" Margin="735,310,735,470" Height="300" Width="450" SelectionChanged="Check_Choosing_Room" d:ItemsSource="{d:SampleData ItemCount=5}">
             <ListBox.BorderBrush>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
