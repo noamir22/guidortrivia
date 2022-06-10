@@ -177,6 +177,10 @@
         </Grid>
         <Button Template="{DynamicResource ButtonTemplate1}" Style="{DynamicResource ButtonStyle1}" x:Name="Back"
                 Content="Back" Height="100" Margin="835,900,835,80" Width="250" Click="Back_OnClick"/>
+        <MediaElement x:Name="Gif" MediaEnded="gif_MediaEnded" UnloadedBehavior="Manual" Source="C:\Users\noami\RiderProjects\WpfApp5\WpfApp5\bin\Debug\net6.0-windows\Data\giphy.gif" LoadedBehavior="Manual" Stretch="fill" Width="250" Height="250" MouseDown="Radio_OnClick" Margin="1660,820,10,10"/>
+
     </Grid>
+    
+    
 
 </Window>

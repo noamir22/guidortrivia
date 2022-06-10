@@ -14,19 +14,29 @@ using System.Windows.Shapes;
 
 namespace WpfApp5
 {
-    /// <summary>
-    /// Interaction logic for WaitingRoomHost.xaml
-    /// </summary>
     public partial class WaitingRoomHost : Window
     {
+        System.Media.SoundPlayer sp;
+        private bool _issound = false;
         public WaitingRoomHost()
         {
             InitializeComponent();
+            App.Start_animation(Gif);
+
         }
 
         private void Check_Choosing_Room(object sender, SelectionChangedEventArgs e)
         {
             throw new NotImplementedException();
         }
+        private void Radio_OnClick(object sender, RoutedEventArgs e)
+        {
+            App.Radio_OnClick(sender,e);
+        }
+        private void gif_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            App.gif_MediaEnded(sender, e);
+        }
     }
+    
 }

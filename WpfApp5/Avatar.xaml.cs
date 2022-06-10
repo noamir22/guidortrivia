@@ -13,10 +13,14 @@ namespace WpfApp5;
 public partial class Avatar : Window
 {
     private bool _flag = true;
+    System.Media.SoundPlayer sp;
+    private bool _issound = false;
     public Avatar()
     {
         
         InitializeComponent();
+        App.Start_animation(Gif);
+
         string currentAvatar = System.IO.File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "Data\\unlocked");
         string[] keyvalue = currentAvatar.Split('\n');
         List<string> images = new List<string>();
@@ -79,5 +83,13 @@ public partial class Avatar : Window
         Menu window = new Menu(); // create a new window
         this.Close(); // close the current window
         window.Show(); // show the new window
+    }
+    private void Radio_OnClick(object sender, RoutedEventArgs e)
+    {
+        App.Radio_OnClick(sender,e);
+    }
+    private void gif_MediaEnded(object sender, RoutedEventArgs e)
+    {
+        App.gif_MediaEnded(sender, e);
     }
 }

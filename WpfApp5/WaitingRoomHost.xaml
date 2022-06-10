@@ -306,5 +306,7 @@
             Height="100" Margin="752,665,750,315" d:LayoutOverrides="HorizontalAlignment"  />
         <Button Template="{DynamicResource ButtonTemplate1}" Style="{DynamicResource ButtonStyle1}" x:Name="close" Content="Close"
             Height="100" Margin="751,875,751,105" d:LayoutOverrides="HorizontalAlignment"  />
+        <MediaElement x:Name="Gif" MediaEnded="gif_MediaEnded" UnloadedBehavior="Manual" Source="C:\Users\noami\RiderProjects\WpfApp5\WpfApp5\bin\Debug\net6.0-windows\Data\giphy.gif" LoadedBehavior="Manual" Stretch="fill" Width="250" Height="250" MouseDown="Radio_OnClick" Margin="1660,820,10,10"/>
+
     </Grid>
 </Window>

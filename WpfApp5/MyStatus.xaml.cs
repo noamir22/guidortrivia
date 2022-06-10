@@ -20,9 +20,13 @@ namespace WpfApp5
     public partial class MyStatus : Window
     {
         private bool _flag = true;
+        System.Media.SoundPlayer sp;
+        private bool _issound = false;
         public MyStatus()
         {
             InitializeComponent();
+            App.Start_animation(Gif);
+
             // TODO: get from the server the current status of the user
             NumberOfGame.Content = "Number of Games: " + "0";
             NumberOfRightAnswers.Content = "Number of Right Answers: " + "0";
@@ -49,6 +53,14 @@ namespace WpfApp5
             Menu window = new Menu(); // create a new window
             this.Close(); // close the current window
             window.Show(); // show the new window
+        }
+        private void Radio_OnClick(object sender, RoutedEventArgs e)
+        {
+            App.Radio_OnClick(sender,e);
+        }
+        private void gif_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            App.gif_MediaEnded(sender, e);
         }
     }
 }

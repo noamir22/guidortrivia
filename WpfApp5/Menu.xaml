@@ -96,7 +96,7 @@
         <SolidColorBrush x:Key="TextBox.Static.Border" Color="#FFABAdB3"/>
         <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#FF7EB4EA"/>
         <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#FF569DE5"/>
-        <Style x:Key="PasswordBoxStyle1" TargetType="{x:Type PasswordBox}">
+        <Style TargetType="{x:Type PasswordBox}">
             <Setter Property="PasswordChar" Value="●"/>
             <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
             <Setter Property="BorderBrush" Value="{StaticResource TextBox.Static.Border}"/>
@@ -144,7 +144,7 @@
         <SolidColorBrush x:Key="TextBox.Static.Border1" Color="#FFABAdB3"/>
         <SolidColorBrush x:Key="TextBox.MouseOver.Border1" Color="#FF7EB4EA"/>
         <SolidColorBrush x:Key="TextBox.Focus.Border1" Color="#FF569DE5"/>
-        <Style x:Key="TextBoxStyle1" TargetType="{x:Type TextBox}">
+        <Style TargetType="{x:Type TextBox}">
             <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
             <Setter Property="BorderBrush" Value="{StaticResource TextBox.Static.Border1}"/>
             <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
@@ -193,7 +193,7 @@
 
 
     <Grid>
-        <Rectangle x:Name="rectangle" StrokeThickness="10"
+        <Rectangle x:Name="Rectangle" StrokeThickness="10"
                    Visibility="Visible"  RenderTransformOrigin="0.5,0.5" RadiusX="10" RadiusY="10" Fill="White">
             <Rectangle.Stroke>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -213,7 +213,7 @@
                 <EventTrigger RoutedEvent="Loaded">
                     <BeginStoryboard>
                         <Storyboard x:Name="Sb">
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="rectangle"
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Rectangle"
                                                            Storyboard.TargetProperty="(UIElement.Visibility)">
                                 <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}" />
                             </ObjectAnimationUsingKeyFrames>
@@ -238,7 +238,7 @@
                 Height="100" Margin="520,390,1150,590" Width="250"  RenderTransformOrigin="0.68,0.55" Click="Join_Room_OnClick"/>
         <Button Template="{DynamicResource ButtonTemplate1}" Style="{DynamicResource ButtonStyle1}" x:Name="MyStatus" Content="My Status"
                 Height="100" Margin="270,490,1400,490" Width="250" Click="My_Status_OnClick" />
-        <Button Template="{DynamicResource ButtonTemplate1}" Style="{DynamicResource ButtonStyle1}" x:Name="Quit" Content="Qoit"
+        <Button Template="{DynamicResource ButtonTemplate1}" Style="{DynamicResource ButtonStyle1}" x:Name="Quit" Content="Quit"
                 Height="100" Margin="520,590,1150,390" Width="250" Click="Quit_OnClick" />
         <Button Template="{DynamicResource ButtonTemplate1}" Style="{DynamicResource ButtonStyle1}" x:Name="CreateRoom"
                 Content="create Room" Height="100" Margin="1400,490,270,490" Width="250" Click="Create_Room_OnClick"/>
@@ -246,9 +246,8 @@
                 Content="Best Score" Height="100" Margin="1150,390,520,590" Width="250" Click="Best_Score_OnClick" />
         <Button Template="{DynamicResource ButtonTemplate1}" Style="{DynamicResource ButtonStyle1}" x:Name="Avatar" Content="avatars"
             Height="100" Margin="1150,590,520,390" Width="250" Click="Avatar_OnClick" />
-        <Image x:Name="avatar" HorizontalAlignment="Center" Margin="0,440,0,440" Width="200" Height="200" d:LayoutOverrides="VerticalAlignment" />
-        <Button Template="{DynamicResource ButtonTemplate1}" Style="{DynamicResource ButtonStyle1}" x:Name="radio" Content="radio"
-            Height="100" Margin="1640,950,30,30" Width="250" Click="Radio_OnClick" />
+        <Image x:Name="ImageAvatar" HorizontalAlignment="Center" Margin="0,440,0,440" Width="200" Height="200" d:LayoutOverrides="VerticalAlignment" />
+        <MediaElement x:Name="Gif" MediaEnded="gif_MediaEnded" UnloadedBehavior="Manual" Source="C:\Users\noami\RiderProjects\WpfApp5\WpfApp5\bin\Debug\net6.0-windows\Data\giphy.gif" LoadedBehavior="Manual" Stretch="fill" Width="250" Height="250" MouseDown="Radio_OnClick" Margin="1660,820,10,10"/>
 
     </Grid>
 </Window>

@@ -37,3 +37,5 @@ C:\Users\noami\RiderProjects\WpfApp5\WpfApp5\obj\Debug\net6.0-windows\Avatar.g.c
 C:\Users\noami\RiderProjects\WpfApp5\WpfApp5\obj\Debug\net6.0-windows\CreateRoom.g.cs
 C:\Users\noami\RiderProjects\WpfApp5\WpfApp5\obj\Debug\net6.0-windows\Avatar.baml
 C:\Users\noami\RiderProjects\WpfApp5\WpfApp5\obj\Debug\net6.0-windows\CreateRoom.baml
+C:\Users\noami\RiderProjects\WpfApp5\WpfApp5\obj\Debug\net6.0-windows\UnlockAvatar.g.cs
+C:\Users\noami\RiderProjects\WpfApp5\WpfApp5\obj\Debug\net6.0-windows\UnlockAvatar.baml

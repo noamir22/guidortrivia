@@ -20,16 +20,29 @@ namespace WpfApp5
     public partial class WaitingRoom : Window
     {
         public string? RoomName;
+        System.Media.SoundPlayer sp;
+        private bool _issound = false;
+
         public WaitingRoom(string? roomName)
         {
-            
             RoomName = roomName;
             InitializeComponent();
+            App.Start_animation(Gif);
+
         }
 
         private void Check_Choosing_Room(object sender, SelectionChangedEventArgs e)
         {
             throw new NotImplementedException();
+        }
+
+        private void Radio_OnClick(object sender, RoutedEventArgs e)
+        {
+            App.Radio_OnClick(sender,e);
+        }
+        private void gif_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            App.gif_MediaEnded(sender, e);
         }
     }
 }

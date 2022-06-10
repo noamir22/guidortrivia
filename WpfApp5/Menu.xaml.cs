@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Media;
 using System.IO;
 using System.Collections;
+using System.Windows.Input;
 
 namespace WpfApp5;
 // Amir: add open and close animation
@@ -17,9 +18,9 @@ public partial class Menu : Window
     {
         InitializeComponent();
         string currentAvatar = System.IO.File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "Data\\currentAvatar");
-        avatar.Source = (ImageSource)new ImageSourceConverter().ConvertFrom(currentAvatar)!;
-
-        }
+        ImageAvatar.Source = (ImageSource)new ImageSourceConverter().ConvertFrom(currentAvatar)!;
+        App.Start_animation(Gif);
+    }
 
     private void Join_Room_OnClick(object sender, RoutedEventArgs e)
     {
@@ -115,32 +116,11 @@ public partial class Menu : Window
 
     private void Radio_OnClick(object sender, RoutedEventArgs e)
     {
-        if (!_issound)
-        {
-            Random rd = new Random();
-            int rand_num = rd.Next(0, 2);
-            switch (rand_num)
-            {
-                case 0:
-                    sp = new System.Media.SoundPlayer(AppDomain.CurrentDomain.BaseDirectory + "\\Data\\sound\\1.wav");
-                    sp.Play();
-
-                    break;
-                case 1:
-                    sp = new System.Media.SoundPlayer(AppDomain.CurrentDomain.BaseDirectory + "\\Data\\sound\\1.wav");
-                    sp.Play();
-                    break;
-                case 2:
-                    sp = new System.Media.SoundPlayer(AppDomain.CurrentDomain.BaseDirectory + "\\Data\\sound\\1.wav");
-                    sp.Play();
-                    break;
-            }
-            _issound = true;
-        }
-        else
-        {
-            sp.Stop();
-            _issound = false;
-        }
+        App.Radio_OnClick(sender,e);
     }
+    private void gif_MediaEnded(object sender, RoutedEventArgs e)
+    {
+        App.gif_MediaEnded(sender, e);
+    }
+    
 }

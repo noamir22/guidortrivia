@@ -20,9 +20,13 @@ namespace WpfApp5
     public partial class BestScores : Window
     {
         private bool _flag = true;
+        System.Media.SoundPlayer sp;
+        private bool _issound = false;
         public BestScores()
         {
             InitializeComponent();
+            App.Start_animation(Gif);
+
             // TODO: get from the server the current status of the user
             First.Content = "first";
             Second.Content = "second";
@@ -48,6 +52,14 @@ namespace WpfApp5
             Menu window = new Menu(); // create a new window
             this.Close(); // close the current window
             window.Show(); // show the new window
+        }
+        private void Radio_OnClick(object sender, RoutedEventArgs e)
+        {
+            App.Radio_OnClick(sender,e);
+        }
+        private void gif_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            App.gif_MediaEnded(sender, e);
         }
         
     }
