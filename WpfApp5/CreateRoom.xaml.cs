@@ -6,8 +6,7 @@ namespace WpfApp5;
 public partial class CreateRoom : Window
 {
     private bool _flag = true;
-    System.Media.SoundPlayer sp;
-    private bool _issound = false;
+
     public CreateRoom()
     {
         InitializeComponent();

@@ -16,8 +16,6 @@ namespace WpfApp5
 {
     public partial class WaitingRoomHost : Window
     {
-        System.Media.SoundPlayer sp;
-        private bool _issound = false;
         public WaitingRoomHost()
         {
             InitializeComponent();

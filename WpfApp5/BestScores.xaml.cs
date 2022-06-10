@@ -20,8 +20,6 @@ namespace WpfApp5
     public partial class BestScores : Window
     {
         private bool _flag = true;
-        System.Media.SoundPlayer sp;
-        private bool _issound = false;
         public BestScores()
         {
             InitializeComponent();

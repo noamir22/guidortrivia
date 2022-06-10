@@ -20,8 +20,6 @@ namespace WpfApp5
     public partial class WaitingRoom : Window
     {
         public string? RoomName;
-        System.Media.SoundPlayer sp;
-        private bool _issound = false;
 
         public WaitingRoom(string? roomName)
         {

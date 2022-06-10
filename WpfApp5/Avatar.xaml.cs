@@ -13,10 +13,10 @@ namespace WpfApp5;
 public partial class Avatar : Window
 {
     private bool _flag = true;
-    System.Media.SoundPlayer sp;
-    private bool _issound = false;
+
     public Avatar()
     {
+        // 
         
         InitializeComponent();
         App.Start_animation(Gif);

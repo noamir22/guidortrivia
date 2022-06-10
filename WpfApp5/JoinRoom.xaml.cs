@@ -9,8 +9,6 @@ public partial class JoinRoom : Window
 {
     private List<string> _rooms = new List<string>();
     private bool _flag = true;
-    System.Media.SoundPlayer sp;
-    private bool _issound = false;
     public JoinRoom()
     {
         InitializeComponent();
