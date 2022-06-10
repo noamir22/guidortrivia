@@ -1,15 +1,13 @@
-﻿<Page x:Class="WpfApp5.unlockAvatar"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:local="clr-namespace:WpfApp5"
-      mc:Ignorable="d"
-      Title="unlockAvatar" Height="450" Width="800"
-      Background="{x:Null}"
-      HorizontalAlignment="Center" VerticalAlignment="Center">
-    <Grid>
-        <Image x:Name="image" Margin="175,0,175,0" Source="/information.png" RenderTransformOrigin="0.5,0.5">
+﻿<Window x:Class="WpfApp5.UnlockAvatar"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:WpfApp5"
+        mc:Ignorable="d"
+        Title="UnlockAvatar" Height="450" Width="800">
+<Grid>
+        <Image x:Name="Image" Margin="175,0,175,0" Source="C:\Users\noami\RiderProjects\WpfApp5\WpfApp5\bin\Debug\net6.0-windows\Data\information.png" RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -22,7 +20,7 @@
                 <EventTrigger>
                     <BeginStoryboard>
                         <Storyboard x:Name="Sb">
-                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="image" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)">
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Image" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)">
                                 <EasingDoubleKeyFrame KeyTime="00:00:00" Value="-19.745"/>
                                 <EasingDoubleKeyFrame KeyTime="00:00:00.1000000" Value="33.677"/>
                                 <EasingDoubleKeyFrame KeyTime="00:00:00.2000000" Value="0.692"/>
@@ -31,28 +29,28 @@
                                 <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="1.857"/>
                                 <EasingDoubleKeyFrame KeyTime="00:00:00.6000000" Value="0.28"/>
                             </DoubleAnimationUsingKeyFrames>
-                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="image" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Image" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
                                 <EasingDoubleKeyFrame KeyTime="00:00:00.2000000" Value="1"/>
                                 <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0.932"/>
                                 <EasingDoubleKeyFrame KeyTime="00:00:00.4000000" Value="0.932"/>
                                 <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="0.965"/>
                                 <EasingDoubleKeyFrame KeyTime="00:00:00.6000000" Value="1.005"/>
                             </DoubleAnimationUsingKeyFrames>
-                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="image" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Image" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
                                 <EasingDoubleKeyFrame KeyTime="00:00:00.2000000" Value="0"/>
                                 <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="15"/>
                                 <EasingDoubleKeyFrame KeyTime="00:00:00.4000000" Value="-15"/>
                                 <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="-7.5"/>
                                 <EasingDoubleKeyFrame KeyTime="00:00:00.6000000" Value="2.5"/>
                             </DoubleAnimationUsingKeyFrames>
-                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="image" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Image" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
                                 <EasingDoubleKeyFrame KeyTime="00:00:00.2000000" Value="1"/>
                                 <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0.89"/>
                                 <EasingDoubleKeyFrame KeyTime="00:00:00.4000000" Value="0.89"/>
                                 <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="0.913"/>
                                 <EasingDoubleKeyFrame KeyTime="00:00:00.6000000" Value="0.972"/>
                             </DoubleAnimationUsingKeyFrames>
-                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="image" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Image" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
                                 <EasingDoubleKeyFrame KeyTime="00:00:00.2000000" Value="0"/>
                                 <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="-25"/>
                                 <EasingDoubleKeyFrame KeyTime="00:00:00.4000000" Value="15"/>
@@ -64,6 +62,5 @@
                 </EventTrigger>
             </Image.Triggers>
         </Image>
-
     </Grid>
-</Page>
+</Window>

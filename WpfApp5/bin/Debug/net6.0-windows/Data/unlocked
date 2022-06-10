@@ -9,7 +9,7 @@ false
 "C:\Users\noami\RiderProjects\WpfApp5\WpfApp5\bin\Debug\net6.0-windows\Data\avatars\black-panther.png"
 false
 "C:\Users\noami\RiderProjects\WpfApp5\WpfApp5\bin\Debug\net6.0-windows\Data\avatars\buffalo.png"
-false
+true
 "C:\Users\noami\RiderProjects\WpfApp5\WpfApp5\bin\Debug\net6.0-windows\Data\avatars\bug.png"
 false
 "C:\Users\noami\RiderProjects\WpfApp5\WpfApp5\bin\Debug\net6.0-windows\Data\avatars\bull.png"
@@ -31,7 +31,7 @@ false
 "C:\Users\noami\RiderProjects\WpfApp5\WpfApp5\bin\Debug\net6.0-windows\Data\avatars\elephant.png"
 false
 "C:\Users\noami\RiderProjects\WpfApp5\WpfApp5\bin\Debug\net6.0-windows\Data\avatars\fox.png"
-false
+true
 "C:\Users\noami\RiderProjects\WpfApp5\WpfApp5\bin\Debug\net6.0-windows\Data\avatars\frog.png"
 false
 "C:\Users\noami\RiderProjects\WpfApp5\WpfApp5\bin\Debug\net6.0-windows\Data\avatars\german-shepherd.png"
@@ -83,14 +83,17 @@ false
 "C:\Users\noami\RiderProjects\WpfApp5\WpfApp5\bin\Debug\net6.0-windows\Data\avatars\puma.png"
 false
 "C:\Users\noami\RiderProjects\WpfApp5\WpfApp5\bin\Debug\net6.0-windows\Data\avatars\rabbit.png"
-false
+true
 "C:\Users\noami\RiderProjects\WpfApp5\WpfApp5\bin\Debug\net6.0-windows\Data\avatars\racoon.png"
 false
 "C:\Users\noami\RiderProjects\WpfApp5\WpfApp5\bin\Debug\net6.0-windows\Data\avatars\reindeer.png"
 false
 "C:\Users\noami\RiderProjects\WpfApp5\WpfApp5\bin\Debug\net6.0-windows\Data\avatars\sloth.png"
-false
+true
 "C:\Users\noami\RiderProjects\WpfApp5\WpfApp5\bin\Debug\net6.0-windows\Data\avatars\walrus.png"
 false    
 "C:\Users\noami\RiderProjects\WpfApp5\WpfApp5\bin\Debug\net6.0-windows\Data\avatars\wild-boar.png"
 false
+
+
+
