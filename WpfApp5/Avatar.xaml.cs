@@ -16,17 +16,15 @@ public partial class Avatar : Window
 
     public Avatar()
     {
-        // 
-        
         InitializeComponent();
         App.Start_animation(Gif);
 
         string currentAvatar = System.IO.File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "Data\\unlocked");
         string[] keyvalue = currentAvatar.Split('\n');
         List<string> images = new List<string>();
-        string [] fileEntries = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory +"Data\\avatars\\");
-        // foreach (string fileName in fileEntries)
-        for (int i=0; i<fileEntries.Length; i++)
+        string[] fileEntries = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory + "Data\\avatars\\");
+
+        for (int i = 0; i < fileEntries.Length; i++)
         {
             Image img = new Image();
             if (keyvalue[2 * i + 1] == "true\r")
@@ -42,20 +40,15 @@ public partial class Avatar : Window
             }
             else
             {
-                img.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory +"Data\\information.png"));
+                img.Source = new BitmapImage(new Uri(AppDomain.CurrentDomain.BaseDirectory + "Data\\information.png"));
                 img.Width = 100;
                 img.Height = 100;
                 maingrid.Children.Add(img);
                 Grid.SetRow(img, images.Count / 7);
                 Grid.SetColumn(img, images.Count % 7);
                 images.Add(fileEntries[i]);
-
             }
-
-
-
         }
-        
     }
 
     private void img_MouseDown(object sender, MouseButtonEventArgs e)
@@ -84,10 +77,12 @@ public partial class Avatar : Window
         this.Close(); // close the current window
         window.Show(); // show the new window
     }
+
     private void Radio_OnClick(object sender, RoutedEventArgs e)
     {
-        App.Radio_OnClick(sender,e);
+        App.Radio_OnClick(sender, e);
     }
+
     private void gif_MediaEnded(object sender, RoutedEventArgs e)
     {
         App.gif_MediaEnded(sender, e);

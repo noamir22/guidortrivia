@@ -7,8 +7,6 @@ using System.Collections;
 using System.Windows.Input;
 
 namespace WpfApp5;
-// Amir: add open and close animation
-// Amir: add sound 
 public partial class Menu : Window
 {
     private bool _flag = true;
